@@ -2,9 +2,15 @@
 
 .auth-container {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 40px clamp(24px, 6vw, 96px);
+  overflow: clip;
 }
 
 .auth-bg {
@@ -21,29 +27,18 @@
 }
 
 .auth-brand {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .auth-logo {
   margin-bottom: 20px;
-  animation: logoFloat 3s ease-in-out infinite;
-}
-
-@keyframes logoFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
 }
 
 .auth-logo svg {
@@ -77,7 +72,7 @@
   background-clip: text;
   text-shadow: none;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-  animation: shimmer 3s ease-in-out infinite;
+  animation: none;
 }
 
 @keyframes shimmer {
@@ -113,21 +108,17 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
-  animation: shimmer 3s ease-in-out infinite;
+  animation: none;
 }
 
 .auth-card {
-  position: absolute;
-  top: 50%;
-  right: 6%;
-  transform: translateY(-50%);
+  position: relative;
   z-index: 3;
+  flex: 0 0 min(460px, 48%);
   width: 460px;
   padding: 36px 48px;
   border-radius: 20px;
-  background: linear-gradient(160deg, rgba(69, 90, 100, 0.55), rgba(55, 71, 79, 0.65));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(160deg, rgba(50, 68, 79, 0.94), rgba(38, 52, 62, 0.96));
   border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.15),
@@ -165,12 +156,11 @@
 }
 
 .auth-form-wrapper {
-  min-height: 280px;
-  max-height: 280px;
-  overflow: hidden;
+  min-height: 0;
 }
 
 .auth-form-scroll {
+  max-height: min(460px, 55svh);
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 8px;
@@ -291,20 +281,16 @@
   margin-top: 4px;
 }
 
-@media (max-width: 1200px) {
-  .auth-brand {
-    top: 8%;
+@media (max-width: 900px) {
+  .auth-container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 28px 16px 40px;
   }
-  
-  .auth-card {
-    right: 5%;
-    width: 440px;
-  }
-}
 
-@media (max-width: 768px) {
   .auth-brand {
-    top: 5%;
+    flex: none;
   }
   
   .auth-logo svg {
@@ -323,17 +309,9 @@
   }
   
   .auth-card {
-    position: relative;
-    top: auto;
-    right: auto;
-    transform: none;
-    width: 90%;
-    margin: 140px auto 0;
+    flex: none;
+    width: min(100%, 460px);
+    margin: 0;
     padding: 24px 28px;
-  }
-  
-  .auth-form-wrapper {
-    max-height: 240px;
-    min-height: 240px;
   }
 }
