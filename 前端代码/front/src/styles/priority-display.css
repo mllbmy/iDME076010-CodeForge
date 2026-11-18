@@ -1,0 +1,231 @@
+/* 优先数据展示样式 - 响应式设计 */
+
+/* 优先行高亮效果 */
+.priority-row {
+  background: linear-gradient(135deg, #667eea11 0%, #764ba211 100%) !important;
+  border-left: 4px solid #667eea !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.priority-row:hover {
+  background: linear-gradient(135deg, #667eea22 0%, #764ba233 100%) !important;
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+.priority-row td {
+  background: transparent !important;
+}
+
+/* 优先标记徽章 */
+.priority-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* 设备表格响应式布局 */
+.equipment-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.equipment-table-responsive .ant-table {
+  font-size: 14px;
+}
+
+.equipment-table-responsive .ant-table-thead > tr > th,
+.equipment-table-responsive .ant-table-tbody > tr > td {
+  padding: 12px 8px;
+  word-wrap: break-word;
+}
+
+/* 物料表格响应式布局 */
+.material-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.material-table-responsive .ant-table {
+  font-size: 14px;
+}
+
+.material-table-responsive .ant-table-thead > tr > th,
+.material-table-responsive .ant-table-tbody > tr > td {
+  padding: 12px 8px;
+  word-wrap: break-word;
+}
+
+/* 平板设备适配 (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .equipment-table-responsive .ant-table,
+  .material-table-responsive .ant-table {
+    font-size: 13px;
+  }
+
+  .equipment-table-responsive .ant-table-thead > tr > th,
+  .equipment-table-responsive .ant-table-tbody > tr > td,
+  .material-table-responsive .ant-table-thead > tr > th,
+  .material-table-responsive .ant-table-tbody > tr > td {
+    padding: 10px 6px;
+  }
+
+  .priority-badge {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+
+  /* 隐藏非关键列 */
+  .hide-on-tablet {
+    display: none !important;
+  }
+}
+
+/* 手机设备适配 (< 768px) */
+@media screen and (max-width: 768px) {
+  .equipment-table-responsive .ant-table,
+  .material-table-responsive .ant-table {
+    font-size: 12px;
+  }
+
+  .equipment-table-responsive .ant-table-thead > tr > th,
+  .equipment-table-responsive .ant-table-tbody > tr > td,
+  .material-table-responsive .ant-table-thead > tr > th,
+  .material-table-responsive .ant-table-tbody > tr > td {
+    padding: 8px 4px;
+    min-width: 80px;
+  }
+
+  .priority-row {
+    border-left-width: 3px;
+  }
+
+  .priority-badge {
+    font-size: 10px;
+    padding: 1px 5px;
+    margin-left: 4px;
+  }
+
+  /* 进一步隐藏列 */
+  .hide-on-mobile {
+    display: none !important;
+  }
+
+  /* 卡片式布局替代表格 */
+  .mobile-card-view {
+    display: block;
+  }
+
+  .desktop-table-view {
+    display: none;
+  }
+}
+
+/* 大屏优化 (> 1440px) */
+@media screen and (min-width: 1440px) {
+  .equipment-table-responsive .ant-table,
+  .material-table-responsive .ant-table {
+    font-size: 15px;
+  }
+
+  .equipment-table-responsive .ant-table-thead > tr > th,
+  .equipment-table-responsive .ant-table-tbody > tr > td,
+  .material-table-responsive .ant-table-thead > tr > th,
+  .material-table-responsive .ant-table-tbody > tr > td {
+    padding: 14px 12px;
+  }
+
+  .priority-row {
+    border-left-width: 5px;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .priority-row {
+    background: #f0f0f0 !important;
+    border-left: 3px solid #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .priority-badge {
+    background: #333 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* 暗色主题支持 (可选) */
+@media (prefers-color-scheme: dark) {
+  .priority-row {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%) !important;
+  }
+
+  .priority-row:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%) !important;
+  }
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+  .priority-row {
+    border-left: 4px solid #000 !important;
+    outline: 2px solid #000;
+  }
+
+  .priority-badge {
+    border: 1px solid #fff;
+  }
+}
+
+/* 减少动画（无障碍） */
+@media (prefers-reduced-motion: reduce) {
+  .priority-row {
+    transition: none;
+  }
+
+  .priority-badge {
+    animation: none;
+  }
+
+  .priority-row:hover {
+    transform: none;
+  }
+}
+
+/* 加载性能优化 */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* 虚拟滚动优化 */
+.virtual-scroll-container {
+  contain: strict;
+}
+
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}

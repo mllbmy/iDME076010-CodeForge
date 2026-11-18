@@ -1,0 +1,37 @@
+# ---- 依赖与构建产物 ----
+node_modules/
+dist/
+dist-electron*/
+release/
+target/
+*.log
+
+# ---- 大体积压缩包（超过 GitHub 单文件 100MB 限制）----
+*.zip
+
+# ---- IDE / 编辑器 ----
+.idea/
+.vscode/
+*.iml
+
+# ---- 本地凭据（不入库）----
+secrets.local.ps1
+application-private.yaml
+.env.local
+.env.*.local
+
+# ---- 示例 Fabric 网络的私钥与证书（不公开）----
+**/crypto-config/
+
+# ---- Fabric 示例私钥 ----
+**/priv_sk
+
+# ---- 系统文件 ----
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ---- 覆盖/临时 ----
+coverage/
+.vite/
+*.tmp

@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: FutureService
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+
+delegate:
+  subAppId: ${IDME_SUB_APP_ID:}
+  domain: http://127.0.0.1:8003
+  userName: ${IDME_USER_NAME:}
+  # 密码不写入仓库：通过环境变量 IDME_PASSWORD 注入
+  password: ${IDME_PASSWORD:}
+  endpoint: https://iam.cn-north-4.myhuaweicloud.com
+  domainName: ${IDME_DOMAIN_NAME:}
+  regionName: cn-north-4
+  serviceType: services/dynamic
+  ssl: false
+
+logging:
+  level:
+    org.hyperledger: trace
